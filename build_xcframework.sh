@@ -28,8 +28,8 @@ sed -i '' 's/TARGET_NAME = "BigInt"/TARGET_NAME = "BigInt_Swift"/g' web3.swift.x
 git grep --name-only "import BigInt$" | tr "\n" "\0" | xargs -0 sed -i '' -e 's/import BigInt/import BigInt_Swift/g'
 ​
 # Archive steps
-xcodebuild archive -scheme web3.swift-Package -sdk iphoneos BUILD_LIBRARY_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO IPHONEOS_DEPLOYMENT_TARGET=11.0 -archivePath web3.swift-iphoneos.xcarchive
-xcodebuild archive -scheme web3.swift-Package -sdk iphonesimulator BUILD_LIBRARY_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO IPHONEOS_DEPLOYMENT_TARGET=11.0 -archivePath web3.swift-iphonesimulator.xcarchive
+xcodebuild archive -scheme web3.swift -sdk iphoneos BUILD_LIBRARY_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO IPHONEOS_DEPLOYMENT_TARGET=13.0 -archivePath web3.swift-iphoneos.xcarchive
+xcodebuild archive -scheme web3.swift -sdk iphonesimulator BUILD_LIBRARY_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO IPHONEOS_DEPLOYMENT_TARGET=13.0 -archivePath web3.swift-iphonesimulator.xcarchive
 ​
 # Copy modulemap from above into Modules/ dir.
 mkdir web3.swift-iphonesimulator.xcarchive/Products/Library/Frameworks/libsecp256k1.framework/Modules
